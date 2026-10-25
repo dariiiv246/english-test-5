@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Test Prep · 5th Grade Girls</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f9f0fc 0%, #f1e6f8 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(6px);
+            border-radius: 52px;
+            padding: 30px 35px 45px;
+            box-shadow: 0 25px 40px -12px rgba(128, 73, 153, 0.3);
+            border: 2px solid #ffffff;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.7rem;
+            font-weight: 700;
+            color: #5d2b6b;
+            letter-spacing: -0.5px;
+            text-shadow: 3px 3px 0 #f0d9ff;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #9255a5;
+            margin-bottom: 30px;
+            font-style: italic;
+            font-weight: 500;
+            border-bottom: 2px dashed #dbb5e9;
+            padding-bottom: 16px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #ffffffd9;
+            backdrop-filter: blur(4px);
+            border-radius: 32px;
+            padding: 20px 22px;
+            box-shadow: 0 8px 18px -6px rgba(150, 100, 180, 0.2);
+            border: 2px solid #ffffff;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            color: #632a7c;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 7px solid #c77ddf;
+            padding-left: 16px;
+            font-weight: 600;
+        }
+
+        .card h2 span {
+            font-size: 1.7rem;
+        }
+
+        .exercise-item {
+            margin-bottom: 20px;
+            background: #faf5ff;
+            border-radius: 24px;
+            padding: 14px 18px;
+            border: 1px solid #e6cef2;
+        }
+
+        .question-text {
+            font-weight: 600;
+            color: #3f2b4a;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .question-text .blank {
+            display: inline-block;
+            min-width: 70px;
+            border-bottom: 3px dotted #b48bc9;
+            margin: 0 4px;
+            font-weight: 700;
+            color: #a237be;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: white;
+            padding: 6px 16px 6px 12px;
+            border-radius: 40px;
+            border: 2px solid #e3c8f0;
+            transition: all 0.1s;
+            cursor: pointer;
+            font-weight: 500;
+            color: #382a40;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .option:hover {
+            background: #f5e9ff;
+            border-color: #c77ddf;
+        }
+
+        .option input[type="radio"] {
+            accent-color: #b14bd1;
+            width: 18px;
+            height: 18px;
+            margin-right: 2px;
+            cursor: pointer;
+        }
+
+        .option label {
+            cursor: pointer;
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 18px;
+            margin-top: 10px;
+        }
+
+        .vocab-item {
+            background: #faf5ff;
+            padding: 10px 14px;
+            border-radius: 40px;
+            border: 1px solid #e6cef2;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .vocab-item .word {
+            color: #5e2e70;
+            font-weight: 600;
+            min-width: 100px;
+        }
+
+        .vocab-item select {
+            padding: 6px 10px;
+            border-radius: 30px;
+            border: 2px solid #d9b5eb;
+            background: white;
+            font-size: 0.9rem;
+            color: #2e1d36;
+            font-weight: 500;
+            outline: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 150px;
+        }
+
+        .vocab-item select:focus {
+            border-color: #b14bd1;
+            box-shadow: 0 0 0 3px #e9c6f5;
+        }
+
+        .btn-check {
+            display: block;
+            width: fit-content;
+            margin: 10px auto 0;
+            background: #8a4a9e;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 16px 58px;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 12px 0 #522b60, 0 10px 25px rgba(120, 60, 140, 0.4);
+            transition: all 0.07s ease;
+            letter-spacing: 1px;
+            border: 2px solid #d9a9ef;
+        }
+
+        .btn-check:active {
+            transform: translateY(6px);
+            box-shadow: 0 6px 0 #522b60, 0 8px 20px rgba(120, 60, 140, 0.4);
+        }
+
+        .result-box {
+            margin-top: 30px;
+            background: #f3e4fa;
+            border-radius: 60px;
+            padding: 22px 28px;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #552a66;
+            border: 3px solid #dbb5e9;
+            display: none;
+            box-shadow: inset 0 2px 12px #e7d0f0;
+        }
+
+        .result-box.show {
+            display: block;
+        }
+
+        .result-box .score {
+            font-size: 2.2rem;
+            color: #a03ab8;
+            font-weight: 800;
+        }
+
+        .correct-answer {
+            color: #1e7e34;
+            font-weight: 700;
+        }
+
+        .wrong-answer {
+            color: #b13e3e;
+            font-weight: 700;
+        }
+
+        .small-note {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #9568a8;
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 15px;
+            color: #b087c0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2rem; }
+            .vocab-grid { grid-template-columns: 1fr; }
+            .option { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 English test prep</h1>
+        <div class="subtitle">Plurals · Numbers · Have got · This/That/These/Those · Vocabulary</div>
+
+        <div class="grid" id="app">
+            <!-- 1. PLURALS -->
+            <div class="card" data-topic="plurals">
+                <h2><span>🔤</span> Plurals</h2>
+                <div id="plurals-questions"></div>
+            </div>
+
+            <!-- 2. NUMBERS -->
+            <div class="card" data-topic="numbers">
+                <h2><span>🔢</span> Numbers 21–1000</h2>
+                <div id="numbers-questions"></div>
+            </div>
+
+            <!-- 3. HAVE GOT / HAS GOT -->
+            <div class="card" data-topic="havegot">
+                <h2><span>✅</span> have got / has got</h2>
+                <div id="havegot-questions"></div>
+            </div>
+
+            <!-- 4. THIS / THAT / THESE / THOSE -->
+            <div class="card" data-topic="demonstratives">
+                <h2><span>👆</span> this / that / these / those</h2>
+                <div id="demonstratives-questions"></div>
+            </div>
+
+            <!-- 5. VOCABULARY (full width card) -->
+            <div class="card" style="grid-column: 1 / -1;" data-topic="vocab">
+                <h2><span>🧸</span> Things vocabulary</h2>
+                <div class="vocab-grid" id="vocab-grid"></div>
+            </div>
+        </div>
+
+        <button class="btn-check" id="checkBtn">CHECK ANSWERS</button>
+        <div class="result-box" id="resultBox"></div>
+        <div class="small-note">⭐ Choose the correct option. For vocabulary, match the word with the picture/description.</div>
+    </div>
+
+    <footer>✨ Good luck, girls! ✨</footer>
+
+    <script>
+        (function() {
+            // ---------- DATA ----------
+            const pluralsData = [
+                { q: 'one box → two ___', options: ['boxs', 'boxes', 'box'], correct: 'boxes' },
+                { q: 'one baby → three ___', options: ['babys', 'babies', 'babyes'], correct: 'babies' },
+                { q: 'one knife → two ___', options: ['knifes', 'knives', 'knifs'], correct: 'knives' },
+                { q: 'one child → many ___', options: ['childs', 'children', 'childes'], correct: 'children' },
+                { q: 'one foot → two ___', options: ['foots', 'feets', 'feet'], correct: 'feet' }
+            ];
+
+            const numbersData = [
+                { q: '21 + 1 = ?', options: ['twenty-one', 'twenty-two', 'thirty'], correct: 'twenty-two' },
+                { q: 'Which is 67?', options: ['sixty-seven', 'seventy-six', 'sixty-six'], correct: 'sixty-seven' },
+                { q: '80 + 20 = ?', options: ['one hundred', 'one thousand', 'ninety'], correct: 'one hundred' },
+                { q: '999 + 1 = ?', options: ['one hundred', 'one thousand', 'nine hundred'], correct: 'one thousand' },
+                { q: 'Which is 340?', options: ['three hundred forty', 'three hundred and forty', 'thirty-four'], correct: 'three hundred and forty' }
+            ];
+
+            const haveGotData = [
+                { q: 'She ___ a new bicycle.', options: ['have got', 'has got', 'haves got'], correct: 'has got' },
+                { q: 'They ___ two skateboards.', options: ['has got', 'have got', 'is got'], correct: 'have got' },
+                { q: '___ you got a helmet?', options: ['Have', 'Has', 'Do'], correct: 'Have' },
+                { q: 'My brother ___ a digital camera.', options: ['have got', 'has got', 'have'], correct: 'has got' },
+                { q: 'I ___ a teddy bear and a scarf.', options: ['has got', 'have got', 'am got'], correct: 'have got' }
+            ];
+
+            const demonstrativesData = [
+                { q: '___ is my new guitar. (near)', options: ['This', 'That', 'These', 'Those'], correct: 'This' },
+                { q: '___ are my gloves. (far)', options: ['This', 'That', 'These', 'Those'], correct: 'Those' },
+                { q: '___ shoes are very cool. (near, plural)', options: ['This', 'That', 'These', 'Those'], correct: 'These' },
+                { q: '___ cap over there is red. (far, singular)', options: ['This', 'That', 'These', 'Those'], correct: 'That' },
+                { q: '___ laptop here is mine. (near, singular)', options: ['This', 'That', 'These', 'Those'], correct: 'This' }
+            ];
+
+            const vocabWords = [
+                { word: 'skateboard', description: 'a board with wheels' },
+                { word: 'helmet', description: 'protects your head' },
+                { word: 'basketball', description: 'orange ball for sport' },
+                { word: 'gloves', description: 'warm hands, two of them' },
+                { word: 'bicycle', description: 'two wheels, you ride it' },
+                { word: 'trainers', description: 'sports shoes' },
+                { word: 'cap', description: 'a hat with a visor' },
+                { word: 'guitar', description: 'musical instrument with strings' },
+                { word: 'digital camera', description: 'takes photos' },
+                { word: 'scarf', description: 'long and warm around the neck' },
+                { word: 'watch', description: 'tells the time on your wrist' },
+                { word: 'handbag', description: 'a bag for personal things' },
+                { word: 'teddy bear', description: 'soft toy bear' },
+                { word: 'headphones', description: 'listen to music privately' },
+                { word: 'laptop', description: 'portable computer' },
+                { word: 'key ring', description: 'holds keys together' },
+                { word: 'purse', description: 'small bag for money' },
+                { word: 'wallet', description: 'holds money and cards' }
+            ];
+
+            // ---------- RENDER FUNCTIONS ----------
+            function renderRadioGroup(containerId, dataArray, groupName) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                container.innerHTML = '';
+                dataArray.forEach((item, idx) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'exercise-item';
+                    const qText = document.createElement('div');
+                    qText.className = 'question-text';
+                    qText.innerHTML = item.q;
+                    itemDiv.appendChild(qText);
+
+                    const optionsDiv = document.createElement('div');
+                    optionsDiv.className = 'options';
+
+                    item.options.forEach(opt => {
+                        const label = document.createElement('label');
+                        label.className = 'option';
+                        const input = document.createElement('input');
+                        input.type = 'radio';
+                        input.name = `${groupName}_${idx}`;
+                        input.value = opt;
+                        input.dataset.qidx = idx;
+                        input.dataset.group = groupName;
+                        label.appendChild(input);
+                        label.appendChild(document.createTextNode(opt));
+                        optionsDiv.appendChild(label);
+                    });
+
+                    itemDiv.appendChild(optionsDiv);
+                    container.appendChild(itemDiv);
+                });
+            }
+
+            // Vocabulary: select options
+            function renderVocab() {
+                const grid = document.getElementById('vocab-grid');
+                if (!grid) return;
+                grid.innerHTML = '';
+                vocabWords.forEach((item, idx) => {
+                    const div = document.createElement('div');
+                    div.className = 'vocab-item';
+                    const wordSpan = document.createElement('span');
+                    wordSpan.className = 'word';
+                    wordSpan.textContent = item.word + ':';
+                    div.appendChild(wordSpan);
+
+                    const select = document.createElement('select');
+                    select.dataset.vocabIdx = idx;
+                    // blank option
+                    const blankOpt = document.createElement('option');
+                    blankOpt.value = '';
+                    blankOpt.textContent = '-- choose --';
+                    blankOpt.disabled = true;
+                    blankOpt.selected = true;
+                    select.appendChild(blankOpt);
+
+                    // shuffle descriptions (for each select, we can use all descriptions but that's fine)
+                    // but for simplicity we provide all vocab descriptions as options (shuffled)
+                    const allDescriptions = vocabWords.map(w => w.description);
+                    // add a shuffled version (but we can also just show all, student picks correct one)
+                    // to make it simpler: we'll add all descriptions, but shuffled.
+                    const shuffled = [...allDescriptions].sort(() => Math.random() - 0.5);
+                    shuffled.forEach(desc => {
+                        const opt = document.createElement('option');
+                        opt.value = desc;
+                        opt.textContent = desc;
+                        select.appendChild(opt);
+                    });
+
+                    div.appendChild(select);
+                    grid.appendChild(div);
+                });
+            }
+
+            // ---------- CHECK ANSWERS ----------
+            function checkAll() {
+                let total = 0;
+                let correctCount = 0;
+
+                // 1. Plurals
+                const pluralQuestions = document.querySelectorAll('#plurals-questions .exercise-item');
+                pluralQuestions.forEach((item, idx) => {
+                    total++;
+                    const selected = item.querySelector('input[type="radio"]:checked');
+                    const correctVal = pluralsData[idx].correct;
+                    if (selected && selected.value === correctVal) correctCount++;
+                });
+
+                // 2. Numbers
+                const numberQuestions = document.querySelectorAll('#numbers-questions .exercise-item');
+                numberQuestions.forEach((item, idx) => {
+                    total++;
+                    const selected = item.querySelector('input[type="radio"]:checked');
+                    const correctVal = numbersData[idx].correct;
+                    if (selected && selected.value === correctVal) correctCount++;
+                });
+
+                // 3. Have got
+                const haveGotQuestions = document.querySelectorAll('#havegot-questions .exercise-item');
+                haveGotQuestions.forEach((item, idx) => {
+                    total++;
+                    const selected = item.querySelector('input[type="radio"]:checked');
+                    const correctVal = haveGotData[idx].correct;
+                    if (selected && selected.value === correctVal) correctCount++;
+                });
+
+                // 4. Demonstratives
+                const demQuestions = document.querySelectorAll('#demonstratives-questions .exercise-item');
+                demQuestions.forEach((item, idx) => {
+                    total++;
+                    const selected = item.querySelector('input[type="radio"]:checked');
+                    const correctVal = demonstrativesData[idx].correct;
+                    if (selected && selected.value === correctVal) correctCount++;
+                });
+
+                // 5. Vocabulary
+                const selects = document.querySelectorAll('#vocab-grid select');
+                selects.forEach((select) => {
+                    total++;
+                    const idx = parseInt(select.dataset.vocabIdx);
+                    const correctDesc = vocabWords[idx].description;
+                    if (select.value === correctDesc) correctCount++;
+                });
+
+                // Show result
+                const resultBox = document.getElementById('resultBox');
+                const percentage = Math.round((correctCount / total) * 100);
+                let message = '';
+                if (percentage === 100) message = '🌟 PERFECT! You are a star!';
+                else if (percentage >= 80) message = '🎉 Great job! Keep it up!';
+                else if (percentage >= 60) message = '👍 Good effort! Review a little more.';
+                else message = '💪 Keep practising, you can do it!';
+
+                resultBox.innerHTML = `Your score: <span class="score">${correctCount} / ${total}</span> (${percentage}%)<br>${message}`;
+                resultBox.classList.add('show');
+
+                // Optional: highlight correct/wrong? Not needed, but maybe visual for answers.
+                // For simplicity we just show score.
+            }
+
+            // ---------- INITIAL RENDER ----------
+            renderRadioGroup('plurals-questions', pluralsData, 'plural');
+            renderRadioGroup('numbers-questions', numbersData, 'number');
+            renderRadioGroup('havegot-questions', haveGotData, 'havegot');
+            renderRadioGroup('demonstratives-questions', demonstrativesData, 'demo');
+            renderVocab();
+
+            // Attach check button
+            document.getElementById('checkBtn').addEventListener('click', checkAll);
+
+            // also hide result on any change? Not necessary.
+        })();
+    </script>
+</body>
+</html>
